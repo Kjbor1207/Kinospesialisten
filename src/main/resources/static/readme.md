@@ -4,7 +4,7 @@ several attempts and a lot of frustration, but it was all worth it in the end.
 userinfo:
 Name: Borgan, Kjetil Hoem.
 OsloMet username: kjbor1207@oslomet.no
-GitHub username: kjbor1207@oslomet.no
+GitHub username: kjbor1207
 
 Introduction:
  
