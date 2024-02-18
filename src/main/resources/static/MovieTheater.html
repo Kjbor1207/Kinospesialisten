@@ -2,80 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Where you buy your tickets online.</title>
+    <script src="TheaterTickets.js"></script>
+    <link rel="stylesheet" href="Movie.css">
 </head>
 <body>
+<div class="headerPart">
 <h1>MovieTheater Cinema</h1>
 <p>Book tickets for your next cinema experience.</p>
+</div>
 <hr>
 
+<div id="ticketSection">
 <h2>Your experience: </h2>
-<p>Choose your movie</p>
+<p><strong>Choose your movie</strong></p>
 <label id="MoviePickTickets">
     <select id="moviePicker">
-        <option value="HARRY POTTER">HARRY POTTER AND THE PHILOSOPHERS STONE</option>
-        <option value="Summer with Monika">SUMMER WITH MONIKA</option>
-        <option value="Godfather">GODFATHER II</option>
-        <option value="Taxi Driver">TAXI DRIVER</option>
-        <option value="SHREK">SHREK</option>
-        <option value="ICE AGE">ICE AGE</option>
+        <option value="">Pick your movie here: </option>
+        <option value="GODFATHER">GODFATHER</option>
+        <option value="TAXI DRIVER">TAXI DRIVER</option>
+        <option value="GOOD FELLAS">GOOD FELLAS</option>
         <option value="MAGNOLIA">MAGNOLIA</option>
-        <option value="GOODFELLAS">GOODFELLAS</option>
-
+        <option value="SIDEWAYS">SIDEWAYS</option>
+        <option value="ICE AGE">ICE AGE</option>
+        <option value="SHREK">SHREK</option>
     </select>
 
     <label id="amountTickets">
         amount:
-        <input type="number" min="1" max="9" required>
+        <input type="number" id="amountField" placeholder="1-9" min="1" max="9" required>
     </label>
 </label>
+</div>
+
 <br>
 <br>
-<label id="ticketType">
-<table>
-    ticket type(s):
-    <tr>
-        <td><input type="checkbox" name="typeTicket" value="child">child</td>
-        <td><input type="checkbox" name="typeTicket" value="adult">adult</td>
-        <td><input type="checkbox" name="typeTicket" value="pensioner">pensioner</td>
-    </tr>
-</table>
-</label>
-<label id="personData">
-    <h3>your info: </h3>
 
-    <table>
+<form method="post" name="purchase" onsubmit="typeTickets(); return false;">
+    <h3>your details: </h3>
+    <table class="tableField">
     <tr>
-        <td>first name:</td>
-        <td>
-            <input type="text" id="nameField" required>
-        </td>
+        <td><label for="nameField">first name:</label></td>
+        <td><input type="text" id="nameField" placeholder="JACK" pattern="/^[a-z ,.'-]+$/i" required></td>
+        <td><span id="wrongName" style="color:red"></span></td>
     </tr>
     <tr>
-        <td>surname:</td>
-        <td><input type="text" id="surnameField" required></td>
+        <td><label for="surnameField">sur name:</label></td>
+        <td><input type="text" id="surnameField" placeholder="ANDERSSON" pattern="/^[a-z ,.'-]+$/i" required></td>
+        <td><span id="wrongSurName" style="color:red"></span></td>
     </tr>
     <tr>
-        <td>email:</td>
-        <td><input type="email" id="emailField" required></td>
+        <td><label for="emailField">email address:</label></td>
+        <td><input type="email" id="emailField" placeholder="name@hotmail.com" pattern="/^[\w-.]+@([\w-" required></td>
+        <td><span id="wrongEmail" style="color:red"></span></td>
     </tr>
     <tr>
-        <td>phone:</td>
-        <td><input type="tel" id="phoneField" pattern="[0-9]{8}" required></td>
+        <td><label for="phoneField">phone number:</label></td>
+        <td><input type="tel" id="phoneField" placeholder="99999999" pattern="[0-9]{8}" required></td>
+        <td><span id="wrongPhone" style="color:red"></span></td>
     </tr>
-
     </table>
-  </label>
-
 <br>
 
-<button onclick="buyTickets()" id="clickTickets">SUBMIT</button>
-<button onclick="deleteTickets" id="deleteTickets">UNDO</button>
+    <div id="buttonSection">
+<button onclick="out()" id="clickButton">SUBMIT</button>
+    </div>
+</form>
 
-<br>
-<br>
+<hr>
 
-<span id="theOrder">Here:</span>
+<p><span id="theOrder"></span></p>
 
+<div id="buttonSection2">
+    <button onclick="deleteTickets()" id="deleteTickets">UNDO</button>
+</div>
 </body>
+
 </html>
